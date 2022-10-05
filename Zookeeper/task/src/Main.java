@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+
 public class Main {
     public static void main(String[] args) {
         String camel = """
@@ -123,16 +124,20 @@ public class Main {
             (" ~----( ~   Y.  )
             It looks like we will soon have more rabbits!""";
 
-
-
-        String [] habitats = {camel, lion, deer, goose, bat, rabbit};
+        String[] animals = {camel, lion, deer, goose, bat, rabbit};
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Please enter the number of the habitat you would like to view:");
-        int i = scanner.nextInt();
-        System.out.println(habitats[i]);
-        System.out.println("---");
-        System.out.println("You've reached the end of the program. To check another habitat, please restart the watcher.");
 
+        while (true) {
+            System.out.println("Please enter the number of the habitat you would like to view:");
+            String input = scanner.next();
+            if (input.equals("exit")) {
+                System.out.println("See you later!");
+                break;
+            } else {
+                int n = Integer.parseInt(input);
+                System.out.println(animals[n]);
+            }
 
+        }
     }
 }
